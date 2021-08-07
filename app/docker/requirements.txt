@@ -1,0 +1,5 @@
+Flask
+requests
+influxdb_client
+python-csv
+pytz
