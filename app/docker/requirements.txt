@@ -3,3 +3,5 @@ requests
 influxdb_client
 python-csv
 pytz
+prophet
+pandas

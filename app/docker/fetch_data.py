@@ -12,7 +12,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 class BatchPush:
 	def __init__(self, bucket, batch_size=5000):
 		self.DBURL = "http://influxdb-service:8086"
-		self.TOKEN = "miSjQO50F_c7eOs-9VL9aBwMnO288m_xjt8M_Aw4M5EuNq3yl-U52evC5-8Nq37kd7Gi58K9_53oMYD57bms7Q=="
+		self.TOKEN = "_RlEoApP3EV-1axfl7kTqa-gWsUn5CFSkZ61kFs0YZy2jwfwQTWyHKNRuMMsUtIOsBm71pQ7a0-U65rQyGoaxg=="
 		self.ORG = "UTEC"
 
 		self.bucket = bucket
