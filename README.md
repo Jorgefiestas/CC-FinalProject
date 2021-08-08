@@ -35,4 +35,17 @@ Grafana is a web platform that allows to easily visualize data through a simple 
 **WebApp:**
 Our web application is a simple API server that allows for simple HTTP request. We used Pythons `Flask` in order to implement it. This service also has acces to InfluxDB and AlphaVantage through the Python client and HTTP respectively. As no data is stored in this service, we decided to lunch multiple replicas of the application in different pods in order to prevent down time and better distribute the number of requests.
 
+## Monitoring
+
+
+## Scalability
+
+The request heavy parts of our application will be the web application and our InfluxDB service, as they will constantly recieve I/O requests. We believe both of this services need some form of scaling in order to deal with higher or lower requests per second. However, as they are different in nature, we believe that each of this should have a different type of scaling.
+
+As the web application works *in memory* and loads the information from *Alpha Vantage* and *InfluxDB*, we believe that the best option for this pods will be horizontal scaling. This is also compatible with the nature of *Flask*, that tends to have sequential procesing. To achieve this we can use a Kubernetes horizontal pod auto-scaling sevice (HPA). 
+
+For InfluxDB scaling horizontally can be a challenge as it has persistent data that would need to be replicated or a more complex query system would need to be built. In order to avoid this we opted for vertical scaling, as InfluxDB already has a parallel procesing nature. For this reason we believe that is better to opt for vertical scalability. In order to achieve this we can use a Kubernetes vertical pod auto-scaling service (VPA).
+
+## Conclusions
+
 
