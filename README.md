@@ -56,6 +56,17 @@ It is important to note that for the port to remain open, we must keep the termi
 
 ![Port Forwarding](docs/port-forward.png)
 
+If we now acces `http://localhost:8086` we should be directed to the `InfluxDB` user interface.
+
+## Web Application API
+
+Once we have open a tunnel to our web application, we can send requests through the localhost. This API currently consists of two queries: `fetch` and `prediction`. 
+
+1. `fetch/<stock>/<bucket>`: Thorugh this request we tell the API to fetch data of a stock and dump it in a bucket. For this to work the bucket must already exist in the database. Example: `fetch/TSLA/MyBucket`. 
+2. `prediction/<stock>/<bucket-from>/<bucket-to>': This request will fetch data from the in-bucket and run predictions using `Prophet`. This predictions the will be dumped to the out-bucket. Example: `prediction/TSLA/MyBucket/PredBucket`
+
+We will be able to see this data in the InfluxDB interface.
+
 ## Architecture
 
 ![Architecture Diagram](docs/architecture.png)
