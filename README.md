@@ -19,7 +19,26 @@ Considering the problems described above, we propose a *Stock Managment* platfor
 
 In a way this will be similar to *FaaS* platforms, with the main difference being that the functions users can call are limited by the API. This way, even users with begginer level understanding of topics of programming and stocks can have a friendly platform to query from. Aswell, in-memory processing will be used in order to realize the complex calculations.
 
-## Architecture Proposal
+## Quickstart
+
+In order to make the deployment process simple, we have used a `Makefile` to invoke all deployment files. The deployment happens in to steps: first the docker images are built and then the kubernetes deployments and services are deployed.
+
+```bash
+make app
+make all
+```
+
+In order to check that all pods were properly deployed we can run the command `kubectl get pods`. This should output all pods and their status:
+
+![Pods Status](docs/pods-status.png)
+
+**Note:** If the application is going to be deployed locally, you might need to change the docker context to build images within the kubernetes cluster. In order to do this run the command:
+
+```bash
+eval $(minikube docker-env)
+```
+
+## Architecture
 
 ![Architecture Diagram](docs/architecture.png)
 
