@@ -7,7 +7,7 @@ from datetime import date
 
 import pandas as pd
 
-TOKEN = "_RlEoApP3EV-1axfl7kTqa-gWsUn5CFSkZ61kFs0YZy2jwfwQTWyHKNRuMMsUtIOsBm71pQ7a0-U65rQyGoaxg=="
+TOKEN = "vnghrD2mQGTT77pWJoOIKDjnjPpgBHqSIYPBXznsnZGKicNpnDD6cRsHJtnIGRFPkHXaSS6wjbHYLNmBPCZkKw=="
 client = InfluxDBClient(url="http://influxdb-service:8086", token=TOKEN, org="UTEC")
 
 def query_idb(stock, field, bucket):
