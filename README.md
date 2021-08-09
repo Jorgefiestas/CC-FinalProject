@@ -69,7 +69,14 @@ We will be able to see this data in the InfluxDB interface.
 
 ## Demo
 
-https://github.com/Jorgefiestas/CC-FinalProject/blob/main/docs/fetch.mp4
+How to fetch data:
+
+https://user-images.githubusercontent.com/33575903/128785320-1230ede4-565e-4226-85fe-439d3d6d1227.mp4
+
+
+How to make predictions:
+
+https://user-images.githubusercontent.com/33575903/128784831-726f6998-d607-4396-ad49-bcf1414a64c5.mp4
 
 ## Architecture
 
