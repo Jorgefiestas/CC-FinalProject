@@ -19,7 +19,7 @@ Considering the problems described above, we propose a *Stock Managment* platfor
 
 In a way this will be similar to *FaaS* platforms, with the main difference being that the functions users can call are limited by the API. This way, even users with begginer level understanding of topics of programming and stocks can have a friendly platform to query from. Aswell, in-memory processing will be used in order to realize the complex calculations.
 
-## Quickstart
+## Deployment
 
 In order to make the deployment process simple, we have used a `Makefile` to invoke all deployment files. The deployment happens in to steps: first the docker images are built and then the kubernetes deployments and services are deployed.
 
@@ -37,6 +37,24 @@ In order to check that all pods were properly deployed we can run the command `k
 ```bash
 eval $(minikube docker-env)
 ```
+
+## Accessing the Application
+
+To access the different components of the application, users can use a *SSH tunnel*, that will redirect a port of the cluster to a port in the users `localhost`. The ports of the webapp, InfluxDB and Grafana are 5000, 8086 and 3000 respectively. In order to open a SSH tunnel we can use the following command:
+
+```bash
+kubectl port-forward svc/<service-name> <cluster-port>:<local-port>
+```
+
+For example, if I want to hook the InfluxDB service to my local port 8086, then I would run the following command:
+
+```bash
+kubectl port-forward svc/influxdb-service 8086:8086
+```
+
+It is important to note that for the port to remain open, we must keep the terminal tab with the forwarding open. We should see something like this in terminal:
+
+![Port Forwarding](docs/port-forward.png)
 
 ## Architecture
 
